@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
-
+from os.path import join
+#BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,12 +21,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '$bmv5!=z-)^f0)7^z88rftplt$l5w8+0$ee-gkde$*ohbg5s&j'
+SECRET_KEY = '1v*=h@l9*$2a_ytxq$@ymp+@ua&!@9h2^ulxb90*q^l+xvu7wy'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #'bootstrap3',
+    'topic',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -52,10 +55,11 @@ MIDDLEWARE_CLASSES = [
 
 ROOT_URLCONF = 'factlist.urls'
 
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [join(BASE_DIR,  'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,11 +80,14 @@ WSGI_APPLICATION = 'factlist.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'factlist',
+        'USER': 'server',
+        'PASSWORD': 's9ekeGFSksjukI87fghsklLLlk0dSdlq',
+        'HOST': '',
+        'PORT': '',
+        }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
@@ -100,13 +107,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+#TEMPLATE_DIRS = (
+#    join(BASE_DIR,  'templates'),
+#)
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Los_Angeles'
 
 USE_I18N = True
 
