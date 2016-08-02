@@ -1,0 +1,25 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar-inner">
+		  <div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		      <a class="brand" href="{% url 'home' %}">political factlist</a>
+			<div class="nav-collapse collapse">
+				{% if user.is_authenticated %}
+					<p class="navbar-text pull-right">Logged in as {{ user.username }}</p>
+				{% endif %}
+				<ul class="nav">
+					<li {% if origin == "overview" %}class="active"{% endif %}><a href="{% url 'home' %}">Home</a></li>
+					<li><a href="/">About</a></li>
+					<li><a href="mailto:jon@searchdiggity.com">Contact</a></li>
+					{% if user.is_authenticated %}
+						<li><a href="{% url 'logout' %}">Logout</a></li>
+					{% endif %}
+					<!-- <li><a href="/retrospecs/">My Profile</a></li> -->
+				</ul>
+			</div> <!--/.nav-collapse -->
+		</div>
+	    </div>
+</div>

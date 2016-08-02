@@ -1,1 +1,38 @@
-You're home
+{% extends "baseNoNav.html" %}
+
+{% block content %}
+	<div class="container">
+		<!-- Main hero unit for a primary marketing message or call to action -->
+		<div class="hero-unit clearfix">
+		<div itemscope itemtype="http://schema.org/Product" class="pull-left span5">
+				     <h1 itemprop="name">searchdiggity</h1>
+				     <br>
+				     <h3>we search... ya dig?</h3>
+				     <br>
+				     <h4 itemprop="description"><a itemprop="url" href="{% url 'home' %}">searchdiggity.com</a> is your own personal automated online classifieds and auction searcher, searching automatically 24 hours a day, 365 days a year.</h4>
+				</div>
+				<div class="pull-right">
+					{% if user.is_authenticated %}
+						Welcome back, user.username ! <a href="/logout/">Logout?</a>
+					{% else %}
+						<strong>{{ message }}</strong><br>
+						</p>
+						Please login, or make an account:
+						<form action="/" method="post" class="well"> {% csrf_token %}
+								{% if next %}
+								<input type="hidden" name="next" value="{{ next }}" />
+								{% endif %}
+							<label>Username</label>
+							<input type="text" name="username" value="{{ username }}" class="span3" placeholder="Type your username">
+							<label>Password</label>
+							<input type="password" name="password" value="" class="span3" placeholder="Type your password">
+							<input type="submit" class="btn btn-primary" value="Log In" />
+						</form>
+						<p><a class="btn btn-success" data-toggle="modal" data-loading-text="Loading..." href="#createNewAccountModal">Create Account &raquo;</a></p>
+						<p><font size="2"><a data-toggle="modal" href="/reset/" mce_href="/reset/">Forgot your password?</a></p></font></p>
+                     {% endif %}
+				</div>
+		</div>
+	</div>
+	  include "account/createNewAccountModal.html"
+{% endblock %}
