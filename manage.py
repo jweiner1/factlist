@@ -45,7 +45,10 @@ if __name__ == "__main__":
                         t = addTopic(sys.argv[3])
                         if t:
                             print "id:[%d] title:[%s] added" % (t.id,t.title)
+                        else:
+                            print "topic already exists"
                             exit()
+                            
             usage('topic')    
             
 
