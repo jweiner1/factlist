@@ -5,15 +5,15 @@
 		      <span class="icon-bar"></span>
 		      <span class="icon-bar"></span>
 		      <span class="icon-bar"></span>
-		      <a class="brand" href="{% url 'home' %}">political factlist</a>
+		      <a class="brand" href="{% url 'home' %}">factlisted</a>
 			<div class="nav-collapse collapse">
 				{% if user.is_authenticated %}
 					<p class="navbar-text pull-right">Logged in as {{ user.username }}</p>
 				{% endif %}
 				<ul class="nav">
-					<li {% if origin == "overview" %}class="active"{% endif %}><a href="{% url 'home' %}">Home</a></li>
+					<li {% if origin == "topics" %}class="active"{% endif %}><a href="{% url 'home' %}">Topics</a></li>
 					<li><a href="/">About</a></li>
-					<li><a href="mailto:jon@searchdiggity.com">Contact</a></li>
+					<li><a href="mailto:crispybacon@factlisted.com">Contact</a></li>
 					{% if user.is_authenticated %}
 						<li><a href="{% url 'logout' %}">Logout</a></li>
 					{% endif %}

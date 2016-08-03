@@ -129,3 +129,31 @@ STATIC_ROOT = join(BASE_DIR,  'static/')
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 #STATICFILES_DIRS = (join(BASE_DIR,  'media/'),)
 STATIC_URL = '/static/'
+
+####################################################################
+# Proprietary global vars
+####################################################################
+
+# ACCT_NUM_BEGIN = 1000
+# MAX_NUM_ACCTS = 25
+# MAX_CONFIRMATION_NUMBER = 999999
+# 
+# EMAIL_USE_TLS = False
+# EMAIL_HOST = '127.0.0.1'
+# EMAIL_PORT = 25
+# 
+# ENABLE_STATUS_EMAILS = True
+# EMAIL_ON_NEW_ACCOUNT = True
+# EMAIL_ON_NEW_SEARCH = False
+# 
+# ENABLE_EMAIL_SEARCH_RESULTS = not DEBUG
+# 
+# WEBSITE_NAME = 'searchdiggity'
+# WEBSITE_SHORT_URL = 'searchdiggity.com'
+# WEBSITE_LONG_URL = 'http://www.searchdiggity.com'
+
+LOCAL_LOGS = DEBUG
+LOG_REMOTE_IP = '73.189.102.20'
+
+# SEARCH_LEVEL_DISABLED = 0
+# SEARCH_LEVEL_DEFAULT = 1

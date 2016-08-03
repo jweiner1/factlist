@@ -20,5 +20,11 @@ import views, settings
 urlpatterns = [
                url(r'^$',           views.home,                 name='home'),
                url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+
+#apps
+               url(r'^topic/',           include('topic.urls', namespace='topic')),
+
+               
+#admin
                url(r'^admin/',      admin.site.urls),
         ]
